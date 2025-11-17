@@ -1,0 +1,472 @@
+              /* Prevent layout shrinking below 1194px or stretching above 1440px */
+      html,
+      body {
+        overflow: hidden; /* removes scrollbars */
+        margin: 0;
+        padding: 0;
+        min-width: 1194px; /* lock minimum */
+        max-width: 1440px; /* lock maximum */
+        margin: 0 auto; /* center when screen > 1440px */
+            background: #767575;
+            font-family: "Roboto", Arial, sans-serif;
+      }
+
+      body {
+        min-width: 1194px; /* lock minimum */
+        max-width: 1440px; /* lock maximum */
+        min-height: 940px; /* lock minimum */
+        max-height: 1047px; /* lock maximum */
+        background-color: #1a1a1f5a;
+        border-radius: 8px;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        align-items: center; /* ensures vertical alignment across axis */
+        width: 100%;
+        height: 65px;
+        background-color: #000;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 8px 8px 0 0;
+        flex-wrap: nowrap; /* prevent items from wrapping to a second line */
+      }
+
+      .logo {
+        color: #fff;
+        font-size: 2rem;
+        text-align: center; /* center lines horizontally */
+        margin: 10px;
+        text-transform: uppercase;
+        flex-direction: column;
+        justify-content: center; 
+        margin-left: 10px;
+        margin-right: 2px;
+      }
+
+      .logo .line1 {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #567;
+      }
+
+      .logo .line2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: gray;
+      }
+      
+      #webworkers {
+          margin-top:auto;
+          bottom:0;
+          width:100%;
+          height:152px;
+      }
+
+      #time {
+        color: #fff;
+      }
+
+      #date {
+        color: #fff;
+      }
+
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        align-items: center; /* aligns icons + text on same line */
+        display: flex;
+        gap: .5rem;
+      }
+
+      .navbar ul li a {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.4rem; /* default size for other links */
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        flex-wrap: nowrap; /* prevent items from wrapping to a second line */
+      }
+
+      .navbar ul li a.screen-link {
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: cyan;
+        border: 2px solid cyan;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+
+      .navbar ul {
+        list-style: none;
+        display: flex;
+      }
+
+      .navbar ul li {
+        flex-shrink: 0; /* ensures each <li> keeps its width */
+      }
+
+      .navbar ul li a.modality {
+        margin-right: 5px;
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: white;
+        background-color: #567;
+        border: 2px solid #567;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+
+      .stage {
+        margin-right: 2px;
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: white;
+        background-color: #567;
+        border: 2px solid #567;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: Roboto;
+        position: static; 
+        z-index: 1;
+      }
+
+      .navbar ul li a.protocol {
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: orange;
+        border: 2px solid orange;
+        padding: 4px 8px;
+        border-radius: 4px;
+        flex-wrap: nowrap;
+      }
+
+      .navbar ul li a.activity {
+        margin-right: 5px;
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: orange;
+        padding: 4px;
+        border-radius: 4px;
+        flex-wrap: nowrap;
+      }
+
+      .clock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+        border: 1px solid white;
+        font-weight: 300;
+        padding: 4px;
+        border-radius: 6px;
+        transition: color 0.3s ease;
+        margin-right: 10px;
+      }
+
+      .calander i {
+        font-size: 3.2rem; /* adjust size as needed */
+        color: grey; /* ensure it's white like other nav links */
+        vertical-align: middle; /* keeps it aligned with text if mixed */
+      }
+
+      .calander:hover i {
+        color: lightgrey;
+      }
+
+      .navbar ul li a:hover {
+        color: #66d4f3;
+      }
+
+      /* Adjustments at 1194px */
+      @media (max-width: 1280px) {
+        .navbar {
+          padding: 0 5px;
+        }
+
+        .logo {
+          font-size: 1.6rem;
+        }
+
+        .navbar ul {
+          gap: .5rem;
+        }
+      }
+
+      .app-container {
+        position:relative;
+        display: flex; /* makes children flow inline */
+        justify-content: space-between; /* distributes them evenly */
+        align-items: center; /* align vertically in the middle */
+        gap: 1rem; /* spacing between boxes */
+      }
+
+      .bay {
+        display: flex;
+        flex-direction:column;
+        justify-content: center; /* horizontal */
+        align-items: center;     /* vertical */
+        padding: 2rem;
+        width: 1024px;
+        height: 880px;
+        background-color: #4d4d4d;
+        border-radius: 86px;
+        margin-top: 10px;
+        border: 2px solid rgb(65, 64, 64); /* or choose any color */
+      }
+
+      .gradient {
+        flex: 1; /* each takes equal width */
+        padding: 2rem;
+        text-align: center;
+        width: 1024px;
+        background: linear-gradient(
+          to top,
+          #4d4d4d 0%,
+          /* bottom solid */ rgba(145, 233, 209, 0.2) 50%,
+          /* middle with 20% opacity */ rgba(0, 0, 0, 0.7) 100%
+            /* top with 70% opacity */
+        );
+        border-radius: 86px;
+        margin-top: 10px;
+        z-index: 1;
+      }
+
+      .left-toolbar {
+        width: 167px;
+        height: 940px;
+        margin: auto;
+        border-radius:50%;
+        background-color: #4d4d4d;
+        border-radius: 100px;
+        margin-left: 20px;
+        margin-top: 10px;
+        z-index: 1;
+        border: 2px solid rgb(65, 64, 64); /* or choose any color */
+      }
+
+      .right-toolbar {
+        width: 167px;
+        height: 940px;
+        margin: auto;
+        border-radius:50% ;
+        background-color: #4d4d4d;
+        border-radius: 100px;
+        margin-right: 20px;
+        margin-top: 10px;
+        z-index: 1;
+        border: 2px solid rgb(65, 64, 64); /* or choose any color */
+      }
+
+      .gauge,
+      .gauge2 {
+        width: 150px;
+        height: 150px;
+        margin: 10px auto;
+        background: #2d373d;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 80px;
+        z-index: 2;
+        border: 3px solid black; /* or choose any color */
+      }
+
+      .temperature {
+        font-weight: 800;
+        color: rgb(51, 173, 51);
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        font-size: 2rem;
+      }
+
+      .status {
+        font-weight: 400;
+        color: yellow;
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        font-size: 1rem;
+        border: 1px solid yellow;
+        background-color: #767575;
+        border-radius: 4px;
+        padding: 2px;
+        margin: 24px;
+      }
+
+      .beam {
+        display: flex;
+        width: 122px;
+        height: 122px;
+        border-radius: 6px;
+        z-index: 3;
+        background-color: white;
+        margin: 22px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border: 4px solid rgb(65, 64, 64); /* or choose any color */
+      }
+
+      .beampattern {
+        position: absolute;
+        z-index: 2;
+      }
+
+      .beam:hover {
+        border: 4px solid cyan; /* or choose any color */
+      }
+
+      .gantry {
+        display: flex;
+        width: 122px;
+        height: 122px;
+        border-radius: 6px;
+        z-index: 3;
+        background-color: white;
+        margin: 22px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border: 4px solid rgb(65, 64, 64); /* or choose any color */
+      }
+
+      .gantry:hover {
+        border: 4px solid cyan; /* or choose any color */
+      }
+      #colorOIP img {
+        transition: opacity 0.3s ease;
+      }
+    
+      #colorOIP:hover img {
+        content: url("images/colorOIP.png");
+      }
+      
+    
+      select {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif;
+        background-color: #333; 
+        color: #eee;
+        border: 1px solid #555; 
+        padding: 0.25em 0.5em;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        appearance: none; /* removes default arrow on some browsers */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+      select:hover,
+      select:focus {
+        border-color: #888;
+        outline: none;
+      }
+
+      .image-container {
+        width: 100%;
+        height: 700px;
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: flex-end; /* Push image to the bottom */
+        overflow: hidden;
+        padding-bottom: 60px;
+      }
+
+      .image-container img {
+        width: 70%;
+        height: auto; 
+        display: block;
+        padding-bottom: 20px;
+      }
+      
+      #progress-container {
+          background: #222;
+          height: 24px;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+        }
+        #progress {
+          background: linear-gradient(90deg, #00ff99, #00ccff);
+          height: 100%;
+          width: 0%;
+          transition: width 0.25s ease-in-out;
+        }
+        
+        
+    
+
+        
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.65);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          opacity: 0;
+          transition: opacity 0.25s ease-in-out;
+        }
+        
+        .overlay.show {
+          opacity: 1;
+        }
+
+        
+        .overlay-card {
+          overflow:auto;
+          max-height: 90%;
+          background: grey;
+          padding: 2rem;
+          width: 90%;
+          max-width: 420px;
+          box-shadow: 0 0 20px rgba(0,0,0,0.3);
+          text-align: center;
+        }
+        
+        
+        
+        .overlay-card h2 {
+          margin-top: 0;
+        }
+        
+        .overlay-card button {
+          margin-top: 1rem;
+          padding: 0.75rem 1.5rem;
+          border: none;
+          border-radius: 8px;
+          background: #0078ff;
+          color: white;
+          font-size: 1rem;
+          cursor: pointer;
+        }
+        
+        .highcharts-background {
+        fill: transparent !important;
+        }
+
+        .highcharts-root text {
+        fill: #000 !important;   /* overrides module chart CSS styles */
+        }
+
+    
+      
+      
+      
+      
