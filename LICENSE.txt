@@ -1,0 +1,70 @@
+LICENSE.txt
+──────────────────────────────────────────────
+THE ARTOMIC RØNTGEN PROJECT  
+© 2025 Art J. Olson / Artomic Design. All Rights Reserved.
+
+This project and all associated source code, designs, and documentation 
+are the confidential and proprietary property of Art J. Olson / Artomic Design.
+
+No part of this project may be copied, reproduced, modified, distributed, 
+or used in any form without the prior written consent of Art J. Olson.
+
+──────────────────────────────────────────────
+Technology Statement
+
+The Artomic RØNTGEN Project uses the following technology stack:
+
+• HTML  
+• PHP / SQL (LAMP)  
+• JavaScript (vanilla)  
+• JSON  
+• Node.js / Express.js  
+• CSS / Flexbox  
+• Fusion 360  
+• SVG  
+• PNG  
+• WOFF  
+• Resource Description Framework (RDF)  
+• Extensible Markup Language (XML)  
+• Bluetooth LE  
+• Arduino  
+• WAI-ARIA
+
+This technology selection is deliberate and intended to balance:
+
+• Efficiency and energy optimization  
+• Accessibility and interoperability  
+• Ease of setup  
+• Approachability for beginners  
+• Cross-OS and browser support  
+• Local and end-user performance  
+• Database security  
+• Code and development protection
+
+When contributing to this project, please adhere to these technology choices.  
+Do not introduce unnecessary complexity or third-party dependencies unless 
+explicitly approved. Specifically avoid:
+
+• 3rd-party libraries and remote server requests  
+• React, Vue, and other Single Page Application frameworks
+
+The Artomic RØNTGEN Project does not require SPA-level complexity; these 
+technologies would negatively impact accessibility, increase code maintenance 
+burden, and introduce potential security and performance issues.
+
+──────────────────────────────────────────────
+Developer Contribution Notice
+
+All contributors agree that any contributions, modifications, or derived works 
+produced during collaboration on this project are “works made for hire” and 
+the exclusive property of Art J. Olson / Artomic Design, unless otherwise 
+agreed in writing.
+
+Contributors may not distribute or reuse project code outside of the scope 
+of this project without express written consent.
+
+──────────────────────────────────────────────
+Contact:  
+Art J. Olson  
+Artomic Design  
+artjolson@gmail.com──────────────────────────────────────────────

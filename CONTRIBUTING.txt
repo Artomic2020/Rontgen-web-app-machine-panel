@@ -1,0 +1,36 @@
+CONTRIBUTING.txt
+──────────────────────────────────────────────
+ARTOMIC RØNTGEN PROJECT – CONTRIBUTOR GUIDELINES
+
+Owner: Art J. Olson / Artomic Design
+
+Thank you for contributing to the Artomic RØNTGEN Project.
+This document defines expectations for all developers working on this codebase.
+
+1. Ownership & Licensing
+   • All code contributions become the property of Art J. Olson / Artomic Design.
+   • No contributor may publish, share, or reuse any part of the code outside this project.
+
+2. Technology Standards
+   • Use only the approved technologies listed in LICENSE.txt.
+   • Avoid adding third-party libraries or frameworks without prior approval.
+   • Avoid React, Vue, Angular, or any SPA framework.
+   • Keep dependencies local and minimize external server calls.
+
+3. Code Ethics
+   • Prioritize accessibility and energy efficiency.
+   • Ensure cross-browser and cross-platform compatibility.
+   • Maintain semantic HTML and valid WAI-ARIA compliance.
+   • Protect user data and database security at all times.
+
+4. Documentation
+   • Comment clearly.
+   • Document all structural and architectural decisions in plain text or Markdown.
+   • Include rationale for any deviations from the technology stack.
+
+──────────────────────────────────────────────
+For questions, contact:
+Art J. Olson  
+Artomic Design  
+artjolson@gmail.com
+──────────────────────────────────────────────
