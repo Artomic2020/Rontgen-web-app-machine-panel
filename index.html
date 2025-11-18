@@ -26,14 +26,14 @@
     <script src="js/highcharts-more.js" defer></script>
     <script src="js/accessibility.js" defer></script>
     <script src="js/chartscombined.js" defer></script>
-    <script src="/js/main.js" defer></script>
-    <script src="/js/script.js" defer></script>
+    <script src="js/main.js" defer></script>
+
 
     <script src="js/charts.js" defer></script>
 
 
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="manifest.json" />
     
     <!--<iframe src="/sandbox.html" sandbox="allow-scripts allow-forms"></iframe>-->
     
@@ -50,20 +50,31 @@
 </head>
 
  <body>
-      <div id="overlay" class="overlay">
-        <div class="overlay-card">
-        <h2>Artomic</h2>
-        <p>
-        To give you updates and alerts, we’d like to send notifications.
-        <br>
-        By continuing, you confirm you’ve read and accept our
-        <a href="/privacy.html" target="_blank">Privacy Policy</a>
-        and <a href="/consent.html" target="_blank">Informed Consent</a>.
-      </p>
-      <button id="push">Enable Notifications</button>
-    </div>
-    </div>
-     
+<div id="openModal" class="overlay">
+  <div class="overlay-card">
+    <h2>Artomic</h2>
+    <p>
+      To give you updates and alerts, we’d like to send notifications.
+      
+      By continuing, you confirm you’ve read and accept our
+      <a href="public/privacy.html" target="_blank">Privacy Policy</a>
+      and <a href="public/consent.html" target="_blank">Informed Consent</a>.
+    </p>
+    <button id="push">Enable Notifications</button>
+  </div>
+</div>
+
+<div id="overlay" class="overlay">
+    <h2>Artomic</h2>
+    <p>
+      To give you updates and ats, we’d like to send notifications.
+      By continuing, you confirm you’ve read and accept our
+      <a href="privacy.html" target="_blank">Privacy Policy</a>
+      and <a href="consent.html" target="_blank">Informed Consent</a>.
+    </p>
+    <button id="push2">Enable Notifications</button>
+  
+</div>
      
     <header class="navbar">
       <div class="logo">
@@ -244,10 +255,18 @@
 </div>
 
 <script>  
+// Show overlay
+overlay.style.display = "block";
 
-        overlay.classList.add('show'); // when showing
-        overlay.classList.remove('show'); // when hiding
-    
+// Hide overlay
+overlay.style.display = "none";
+
+// Show overlay
+//openModal.style.display = "block";
+
+// Hide overlay
+//openModal.style.display = "none";
+
 
       window.addEventListener("DOMContentLoaded", () => {
         selector.dispatchEvent(new Event("change"));
@@ -320,6 +339,8 @@
         }
       });
     </script>
+        <script src="js/script.js"></script>
+
 
   </body>
 </html>
