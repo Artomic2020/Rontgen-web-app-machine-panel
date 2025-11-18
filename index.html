@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
-        
+
     <!--
     © 2025 Art J. Olson / Artomic Design. All Rights Reserved.
     The Artomic RØNTGEN Project — proprietary code and design.
@@ -15,12 +15,20 @@
     Purpose: Efficiency, accessibility, interoperability, and secure development.
     Avoid 3rd-party libraries and SPA frameworks.
     -->
-    <meta name="copyright" content="© 2025 Art J. Olson / Artomic Design. All Rights Reserved.">
-    <meta name="author" content="Art J. Olson">
-    <meta name="project" content="The Artomic RØNTGEN Project">
-    <meta name="license" content="All Rights Reserved. Proprietary and confidential.">
-    <meta name="technology" content="HTML, JavaScript (vanilla), JSON, Node.js/Express.js, CSS/Flexbox, RDF, XML, Bluetooth LE, Arduino, WAI-ARIA.">
-
+    <meta
+      name="copyright"
+      content="© 2025 Art J. Olson / Artomic Design. All Rights Reserved."
+    />
+    <meta name="author" content="Art J. Olson" />
+    <meta name="project" content="The Artomic RØNTGEN Project" />
+    <meta
+      name="license"
+      content="All Rights Reserved. Proprietary and confidential."
+    />
+    <meta
+      name="technology"
+      content="HTML, JavaScript (vanilla), JSON, Node.js/Express.js, CSS/Flexbox, RDF, XML, Bluetooth LE, Arduino, WAI-ARIA."
+    />
 
     <script src="js/highcharts.js" defer></script>
     <script src="js/highcharts-more.js" defer></script>
@@ -28,54 +36,53 @@
     <script src="js/chartscombined.js" defer></script>
     <script src="js/main.js" defer></script>
 
-
     <script src="js/charts.js" defer></script>
-
 
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="manifest" href="manifest.json" />
-    
+
     <!--<iframe src="/sandbox.html" sandbox="allow-scripts allow-forms"></iframe>-->
-    
+
     <!-- iOS Home Screen Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon180.png">
-    
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon180.png" />
+
     <!-- Make app open in standalone mode -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
     <!-- Name under the icon -->
-    <meta name="apple-mobile-web-app-title" content="Artomic Røntgen">
+    <meta name="apple-mobile-web-app-title" content="Artomic Røntgen" />
+  </head>
 
-</head>
+  <body>
+    <div id="openModal" class="overlay">
+      <div class="overlay-card">
+        <h2>Artomic</h2>
+        <p>
+          To give you updates and alerts, we’d like to send notifications. By
+          continuing, you confirm you’ve read and accept our
+          <a href="public/privacy.html" target="_blank">Privacy Policy</a>
+          and
+          <a href="public/consent.html" target="_blank">Informed Consent</a>.
+        </p>
+        <button id="push">Enable Notifications</button>
+      </div>
+    </div>
 
- <body>
-<div id="openModal" class="overlay">
-  <div class="overlay-card">
-    <h2>Artomic</h2>
-    <p>
-      To give you updates and alerts, we’d like to send notifications.
-      
-      By continuing, you confirm you’ve read and accept our
-      <a href="public/privacy.html" target="_blank">Privacy Policy</a>
-      and <a href="public/consent.html" target="_blank">Informed Consent</a>.
-    </p>
-    <button id="push">Enable Notifications</button>
-  </div>
-</div>
+    <div id="overlay" class="overlay">
+      <h2>Artomic</h2>
+      <p>
+        To give you updates and ats, we’d like to send notifications. By
+        continuing, you confirm you’ve read and accept our
+        <a href="privacy.html" target="_blank">Privacy Policy</a>
+        and <a href="consent.html" target="_blank">Informed Consent</a>.
+      </p>
+      <button id="push2">Enable Notifications</button>
+    </div>
 
-<div id="overlay" class="overlay">
-    <h2>Artomic</h2>
-    <p>
-      To give you updates and ats, we’d like to send notifications.
-      By continuing, you confirm you’ve read and accept our
-      <a href="privacy.html" target="_blank">Privacy Policy</a>
-      and <a href="consent.html" target="_blank">Informed Consent</a>.
-    </p>
-    <button id="push2">Enable Notifications</button>
-  
-</div>
-     
     <header class="navbar">
       <div class="logo">
         <div class="line1">Artomic</div>
@@ -145,7 +152,7 @@
         <div id="stage1" class="stage">3</div>
         <div id="stage1" class="stage">4</div>
         -->
-        
+
         <div class="image-container">
           <img
             id="displayImage"
@@ -154,125 +161,144 @@
           />
         </div>
 
-        
         <button id="start">Run Benchmark</button>
 
-        <div id="progress-container" style="width: 100%; background: #444; height: 20px; border-radius: 10px; overflow: hidden; margin-top: 10px;">
-        <div id="progress" style="height: 100%; width: 0%; background: limegreen; transition: width 0.3s ease;"></div>
+        <div
+          id="progress-container"
+          style="
+            width: 100%;
+            background: #444;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+          "
+        >
+          <div
+            id="progress"
+            style="
+              height: 100%;
+              width: 0%;
+              background: limegreen;
+              transition: width 0.3s ease;
+            "
+          ></div>
         </div>
 
-        <pre id="status" style="margin-top: 10px; color: white;">Ready</pre>
-    
+        <pre id="status" style="margin-top: 10px; color: white">Ready</pre>
+
         <figure class="highcharts-figure">
-
-    
-
-        <div id="container" style="width: span; height: 200px; overflow: visible !important;"></div>
+          <div
+            id="container"
+            style="width: span; height: 200px; overflow: visible !important"
+          ></div>
         </figure>
-
-  
-  
-        </div>
+      </div>
 
       <!--<div id="conebeam" class="beampattern"><img src="images/conebeam.png" alt="Cone beam"></div>-->
-    
 
-    <div class="right-toolbar">
-      <div id="gauge3" class="gauge">
-        <img
-          src="images/speaker.png"
-          alt="example"
+      <div class="right-toolbar">
+        <div id="gauge3" class="gauge">
+          <img
+            src="images/speaker.png"
+            alt="example"
+            style="
+              position: relative;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            "
+          />
+        </div>
+
+        <div
+          id="gauge4"
+          class="gauge"
+          style="position: relative; width: 150px; height: 150px"
+        >
+          <img
+            src="images/knob_Base.png"
+            alt="example"
+            style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            "
+          />
+        </div>
+
+        <div
+          id="online-status"
+          class="status"
           style="
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
           "
-        />
-      </div>
+        >
+          Checking...
+        </div>
 
-      <div
-        id="gauge4"
-        class="gauge"
-        style="position: relative; width: 150px; height: 150px"
-      >
-        <img
-          src="images/knob_Base.png"
-          alt="example"
-          style="
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-          "
-        />
-      </div>
-
-      
-      <div id="online-status" class="status" style="padding: 5px 10px; border-radius: 5px; font-weight: bold; color: white;">
-  Checking...
-</div>
-
-<!--
+        <!--
     <iframe 
   src="/sandbox.html"
   sandbox="allow-scripts allow-forms"
   style="width:5%; height:5%; border:0;"
 ></iframe>
 -->
-      <div id="rotate" class="gantry">
-        <img src="images/wider.png" alt="example">
-      </div>
+        <div id="rotate" class="gantry">
+          <img src="images/wider.png" alt="example" />
+        </div>
 
-      <button id="nextBtn" class="gantry">
-        <img src="images/turn.png" alt="example">
-      </button>
+        <button id="nextBtn" class="gantry">
+          <img src="images/turn.png" alt="example" />
+        </button>
 
-      <div id="colorOIP" class="gantry">
-        <img id="hoverImg" src="images/OIP.png" alt="example">
-      </div>
+        <div id="colorOIP" class="gantry">
+          <img id="hoverImg" src="images/OIP.png" alt="example" />
+        </div>
 
-      <div
-        style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          margin-top: 5px;
-        "
-      >
-        <img src="images/express.png" alt="Express JS" style="height: 40px" />
-        <img
-          src="images/nodejs-icon.jpg"
-          alt="Node JS icon"
-          style="height: 40px"
-        />
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+          "
+        >
+          <img src="images/express.png" alt="Express JS" style="height: 40px" />
+          <img
+            src="images/nodejs-icon.jpg"
+            alt="Node JS icon"
+            style="height: 40px"
+          />
+        </div>
       </div>
     </div>
-</div>
 
-<script>  
-// Show overlay
-overlay.style.display = "block";
+    <script>
+      // Show overlay
+      overlay.style.display = "block";
 
-// Hide overlay
-overlay.style.display = "none";
+      // Hide overlay
+      overlay.style.display = "none";
 
-// Show overlay
-//openModal.style.display = "block";
+      // Show overlay
+      //openModal.style.display = "block";
 
-// Hide overlay
-//openModal.style.display = "none";
-
+      // Hide overlay
+      //openModal.style.display = "none";
 
       window.addEventListener("DOMContentLoaded", () => {
         selector.dispatchEvent(new Event("change"));
       });
 
-      
       const images = {
         mode1: [
           "images/PNG/isometric_set_0000_1255_isometric_330deg_1.png",
@@ -318,7 +344,6 @@ overlay.style.display = "none";
       let currentMode = "mode3:";
       let currentIndex = 0;
 
-      
       selector.addEventListener("change", function () {
         currentMode = this.value;
         currentIndex = 0;
@@ -339,8 +364,6 @@ overlay.style.display = "none";
         }
       });
     </script>
-        <script src="js/script.js"></script>
-
-
+    <script src="js/script.js"></script>
   </body>
 </html>
