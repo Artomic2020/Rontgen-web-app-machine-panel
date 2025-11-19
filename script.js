@@ -1,6 +1,6 @@
 // Clear inputs on load
 window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('input, textarea, select').forEach(el => {
+  document.querySelectorAll('input, textarea').forEach(el => {
     el.value = '';
   });
 });
@@ -114,3 +114,4 @@ startBtn.onclick = async () => {
       document.getElementById("overlay").style.display = "none";
     });
     
+
