@@ -43,24 +43,17 @@ const APP_SHELL = [
 // INSTALL EVENT
 // -------------------------------
 
+
+
 self.addEventListener('install', (e) => {
   console.log('Service Worker installing...');
-  e.waitUntil(self.skipWaiting());
+  e.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(APP_SHELL))
+      .then(() => self.skipWaiting())
+  );
 });
 
-// -------------------------------
-// ACTIVATE EVENT
-// -------------------------------
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.map(key => {
-        if (key !== CACHE_NAME) return caches.delete(key);
-      })
-    ))
-  );
-  self.clients.claim();  // take control of all pages immediately
-});
 
 
 // -------------------------------
@@ -85,7 +78,7 @@ self.addEventListener('fetch', event => {
         return response;
       } catch (err) {
         console.warn('Fetch failed:', err);
-        return new Response(null, { status: 200 });
+        return Response.error();
       }
     })()
   );
@@ -96,25 +89,38 @@ self.addEventListener('fetch', event => {
 // PUSH HANDLER
 // -------------------------------
 self.addEventListener("push", event => {
-  console.log("Push received:", event.data?.text());
-
-  if (!event.data) return;
-
-  let data;
-  try {
-    data = event.data.json();
-  } catch {
-    console.warn("Non-JSON push received — ignoring.");
+  if (!event.data) {
+    console.warn("Push received, but no data.");
     return;
   }
 
+  let data;
+
+  // Try JSON first
+  try {
+    data = event.data.json();
+  } catch {
+    // Fallback: treat as text
+    const text = event.data.text();
+    console.warn("Non-JSON push received, treating as text:", text);
+
+    data = {
+      title: "Notification",
+      body: text
+    };
+  }
+
+  const title = data.title || "Notification";
+  const body = data.body || "(No message)";
+
   event.waitUntil(
-    self.registration.showNotification(data.title, {
-      body: data.body,
+    self.registration.showNotification(title, {
+      body,
       icon: "/icons/favicon180.png"
     })
   );
 });
+
 
 
 
