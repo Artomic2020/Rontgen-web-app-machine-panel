@@ -53,6 +53,9 @@ const startBtn = document.getElementById('start');
 const progressBar = document.getElementById('progress');
 const statusEl = document.getElementById('status');
 
+
+let benchmarkStatus = null;
+
 let pollingInterval = null;
 
 startBtn.onclick = async () => {
@@ -114,4 +117,3 @@ startBtn.onclick = async () => {
       document.getElementById("overlay").style.display = "none";
     });
     
-

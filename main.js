@@ -33,7 +33,6 @@ async function startApp() {
       return;
     }
   } catch (e) {
-    // Fetch failed silently
     setOffline();
     return;
   }
@@ -69,7 +68,7 @@ fetch('/vapid-public-key')
     
   document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("overlay");
-  const pushbutton = document.getElementById("ush");
+  const pushbutton = document.getElementById("push");
 
   // Show overlay if notifications not yet accepted
   if (Notification.permission !== "granted" && localStorage.getItem("notificationsAccepted") !== "true") {
@@ -97,39 +96,31 @@ fetch('/vapid-public-key')
     } else {
       alert("Notifications not enabled");
     }
+  
+  });      
   });
-});
+  });
 
-  });   
 }
 
 // Start the logic
 startApp();
 
-  // (main.js logic here)
-  if ('serviceWorker' in navigator) {
-  window.addEventListener('load', async () => {
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", async () => {
     try {
-      // Register the service worker
-      const reg = await navigator.serviceWorker.register('/service-worker.js');
-      console.log('Service Worker registered:', reg);
+      const reg = await navigator.serviceWorker.register("/service-worker.js");
+      console.log("Service Worker registered:", reg);
 
-      // Wait for the service worker to be ready
       const readyReg = await navigator.serviceWorker.ready;
+      console.log("Service Worker ready:", readyReg);
 
-      // Request notification permission
-      const permission = await Notification.requestPermission();
-      if (permission !== 'granted') {
-        console.log('Notifications not allowed');
-        return;
-      }
-
+      // Notification.requestPermission() here MUST be triggered by a user gesture
     } catch (err) {
-      console.error('Service Worker / Push setup failed:', err);
+      console.error("Service Worker / Push setup failed:", err);
     }
   });
 }
-
 
 
 
