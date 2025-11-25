@@ -1,0 +1,598 @@
+html { background: #767575;
+
+}
+
+/* Base layout for all devices */
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 1024px;   /* iPad Mini landscape */
+    max-width: 1440px;   /* Desktop landscape */
+    min-height: 768px;   /* iPad Mini landscape (height) */
+    max-height: 1024px;  /* Desktop landscape */
+    height: auto;       /* flexible scaling in between */
+    overflow: hidden;    /* remove scrollbars */
+    margin: 0 auto;      /* center when screen wider than max-width */
+    background: #515151;
+    border-radius: 8px;
+    font-family: "Roboto", Arial, sans-serif; 
+}
+
+/* iPad Mini landscape - enforce minimum height */
+@media (max-width: 1024px) {
+    body {
+        height: 768px;
+    }
+}
+
+/* Desktop landscape - enforce maximum height */
+@media (min-width: 1440px) {
+    body {
+        height: 1024px;
+    }
+}
+      /* Navbar */
+      .navbar {
+        display: flex;
+        align-items: center; /* ensures vertical alignment across axis */
+        width: 100%;
+        height: 65px;
+        background-color: #000;
+        justify-content: space-between;
+        border-radius: 8px 8px 0 0;
+        flex-wrap: nowrap; /* prevents items from wrapping to a second line */
+      }
+
+      .logo {
+        color: #fff;
+        font-size: 2rem;
+        text-align: center; /* center lines horizontally */
+        margin: 10px;
+        text-transform: uppercase;
+        flex-direction: column;
+        justify-content: center; 
+        margin-left: 10px;
+        margin-right: 2px;
+      }
+
+      .logo .line1 {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #567;
+      }
+
+      .logo .line2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: gray;
+      }
+      
+      #webworkers {
+          margin-top:auto;
+          bottom:0;
+          width:100%;
+          height:152px;
+      }
+
+      #time {
+        color: #fff;
+      }
+
+      #date {
+        color: #fff;
+      }
+
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        align-items: center; /* aligns icons + text on same line */
+        display: flex;
+        gap: .5rem;
+      }
+
+      .navbar ul li a {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.4rem; /* default size for other links */
+        text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        flex-wrap: nowrap; /* prevent items from wrapping to a second line */
+      }
+
+      .navbar ul li a.screen-link {
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: cyan;
+        border: 2px solid cyan;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+
+      .navbar ul {
+        list-style: none;
+        display: flex;
+      }
+
+      .navbar ul li {
+        flex-shrink: 0; /* ensures each <li> keeps its width */
+      }
+
+      .navbar ul li a.modality {
+        margin-right: 5px;
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: white;
+        background-color: #567;
+        border: 2px solid #567;
+        padding: 4px 8px;
+        border-radius: 4px;
+      }
+
+      .stage {
+        margin-right: 2px;
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: white;
+        background-color: #567;
+        border: 2px solid #567;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: Roboto;
+        position: static; 
+        z-index: 1;
+      }
+
+      .navbar ul li a.protocol {
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: orange;
+        border: 2px solid orange;
+        padding: 4px 8px;
+        border-radius: 4px;
+        flex-wrap: nowrap;
+      }
+
+      .navbar ul li a.activity {
+        margin-right: 5px;
+        float: left;
+        font-size: 1.4rem;
+        font-weight: 900;
+        color: orange;
+        padding: 4px;
+        border-radius: 4px;
+        flex-wrap: nowrap;
+      }
+
+      .clock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+        border: 1px solid white;
+        font-weight: 300;
+        padding: 4px;
+        border-radius: 6px;
+        transition: color 0.3s ease;
+        margin-right: 10px;
+      }
+
+      .calander i {
+        font-size: 3.2rem; /* adjust size as needed */
+        color: grey; /* ensure it's white like other nav links */
+        vertical-align: middle; /* keeps it aligned with text if mixed */
+      }
+
+      .calander:hover i {
+        color: lightgrey;
+      }
+
+      .navbar ul li a:hover {
+        color: #66d4f3;
+      }
+
+      /* Adjustments at 1194px */
+      @media (max-width: 1280px) {
+        .navbar {
+          padding: 0 5px;
+        }
+
+        .logo {
+          font-size: 1.6rem;
+        }
+
+        .navbar ul {
+          gap: .5rem;
+        }
+      }
+
+      .app-container {
+
+        display: flex; /* makes children flow inline */
+        flex-direction: row;
+    
+        gap: 1rem; /* spacing between boxes */
+        height: 100%;
+      }
+
+      .bay {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction:column;
+        justify-content: center; /* horizontal */
+        align-items: center;     /* vertical */
+        padding: 2rem;
+        width: 1024px;
+        min-height: 690px;
+        max-height: 868px;
+        height: auto;
+        background-color: #4d4d4d;
+        border-radius: 868px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 2px solid rgb(65, 64, 64); /* or choose any color */
+      }
+
+      .gradient {
+        flex: 1 1 auto;/* each takes equal width */
+        padding: 2rem;
+        text-align: center;
+        width: 1024px;
+        background: linear-gradient(
+          to top,
+          #4d4d4d 0%,
+          /* bottom solid */ rgba(145, 233, 209, 0.2) 50%,
+          /* middle with 20% opacity */ rgba(0, 0, 0, 0.7) 100%
+            /* top with 70% opacity */
+        );
+        border-radius: 86px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        z-index: 1;
+      }
+
+    .left-toolbar {
+  flex: 1 1 auto;
+  display: flex;              /* makes it a flex element */
+  flex-direction: column;     /* optional—remove or change if needed */
+  justify-content: flex-start;    /* optional */
+  align-items: center;        /* optional */
+  min-width: 130px;           /* your requirement */;
+  max-width: 167px;           /* you can keep or remove */
+  min-height: 690px;          /* your requirement */
+  max-height: 910px;          /* you can keep or remove */
+  height: auto;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #4d4d4d;
+  border-radius: 100px;
+  border: 2px solid rgb(65, 64, 64);
+  z-index: 1;
+}
+
+
+      .right-toolbar {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        min-width: 130px;
+        max-width: 167px;
+        min-height: 690px;
+        max-height: 910px;
+        height: auto;
+        background-color: #4d4d4d;
+        border-radius: 100px;
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-bottom:10px;
+        padding: 10px;
+        z-index: 1;
+        border: 2px solid rgb(65, 64, 64); /* or choose any color */
+      }
+
+ 
+
+
+.gauge,
+.gauge2 {
+  width: 90%;             /* 80% of toolbar width */
+  aspect-ratio: 1 / 1;    /* keep square */
+  max-width: 150px;
+  min-width: 100px;
+
+  margin-bottom: 10px;
+  background: #2d373d;
+  border-radius: 50%;
+  border: 3px solid black;
+  z-index: 2;
+   display: flex;            /* Correct: apply flex to the container */
+  justify-content: center;
+  align-items: center;
+}
+
+
+      .temperature {
+        font-weight: 500;
+        color: rgb(51, 173, 51);
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        font-size: 1.2rem;
+      }
+
+      .status {
+        font-weight: 400;
+        color: yellow;
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        font-size: 1rem;
+        border: 1px solid yellow;
+        background-color: #767575;
+        border-radius: 4px;
+        padding: 2px;
+        margin: 4px;
+      }
+
+      .beam {
+        display: flex;
+        width: 90%;             /* 80% of parent width */
+        aspect-ratio: 1 / 1;    /* keeps it square */
+        min-width: 100px;       /* won't shrink below this */
+        max-width: 128px;       /* won't grow above this */
+
+        margin: 10px;
+        border-radius: 6px;
+        border: 4px solid rgb(65, 64, 64);
+        background-color: white;
+
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 3;
+      }
+
+
+      .beampattern {
+        position: absolute;
+        z-index: 2;
+      }
+
+      .beam:hover {
+        border: 4px solid cyan; /* or choose any color */
+      }
+
+      .gantry {
+          display: flex;
+          width: 90%;             /* 80% of parent width */
+          aspect-ratio: 1 / 1;    /* keeps it square */
+          min-width: 100px;       /* won't shrink below this */
+          max-width: 128px;       /* won't grow above this */
+
+          margin: 10px;
+          border-radius: 6px;
+          border: 4px solid rgb(65, 64, 64);
+          background-color: white;
+
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 3;
+      }
+
+      .gantry:hover {
+        border: 4px solid cyan; /* or choose any color */
+      }
+      #colorOIP img {
+        transition: opacity 0.3s ease;
+      }
+    
+
+    
+      select {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif;
+        background-color: #333; 
+        color: #eee;
+        border: 1px solid #555; 
+        padding: 0.25em 0.5em;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        appearance: none; /* removes default arrow on some browsers */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+      select:hover,
+      select:focus {
+        border-color: #888;
+        outline: none;
+      }
+
+      .image-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: flex-end;    /* align items to the bottom */
+    padding-bottom: 10%;  /* creates consistent baseline */
+
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container img {
+  width: 90%;
+  height: auto;
+  display: block;
+  
+}
+
+      
+      #progress-container {
+          background: #222;
+          height: 24px;
+          border-radius: 12px;
+          overflow: hidden;
+          box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+        }
+
+        #progress {
+          background: linear-gradient(90deg, #00ff99, #00ccff);
+          height: 100%;
+          width: 0%;
+          transition: width 0.25s ease-in-out;
+        }
+        
+       /* Overlay Styling */
+.overlay {
+  display: flex;               
+  position: fixed;               
+  top: 0;                        /* start at top-left */
+  left: 0;
+  width: 100%;                   /* full width */
+  height: 100%;                  /* full height */
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;       /* optional: centers inner content */
+  align-items: center;           /* optional: centers inner content */
+  z-index: 1000;
+  opacity: 1;                    /* visible */
+  visibility: visible;           /* clickable */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+.overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Overlay Card Styling */
+.overlay-card {
+  position: fixed;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+}
+
+.overlay h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.overlay button {
+  padding: 10px 20px;
+  background-color: #4CAF50;  
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.overlay button:hover {
+  background-color: #45a049; 
+}    
+        
+.highcharts-background {
+  fill: transparent !important;
+}
+
+.highcharts-root text {
+  fill: #000 !important;   /* overrides module chart CSS styles */
+}
+
+.highcharts-credits {
+    display: none !important; /* Highcharts.com */
+}
+
+
+.highcharts-figure{height: 200px;}
+
+#container {height: 230px !important}
+
+#saveFilesBtn {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background-color: #2d373d;
+  color: #8a8989;
+  cursor: pointer;
+  outline: none;
+  transition: 0.15s ease;
+}
+
+#saveFilesBtn:hover {
+  background-color: #3a444b;
+  border-color: #888;
+}
+
+#saveFilesBtn:active {
+  background-color: #475359;
+}
+#jsonUpload {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background-color: #2d373d;
+  color: #767474;
+  cursor: pointer;
+  outline: none;
+}
+
+#jsonUpload:hover {
+  background-color: #3a444b;
+  border-color: #888;
+}
+
+#jsonUpload:active {
+  background-color: #475359;
+}
+
+
+#drawChartBtn,
+#start  {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background-color: #2d373d;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: 0.15s ease;
+}
+
+#drawChartBtn:hover,
+#start:hover,  {
+  background-color: #3a444b;
+  border-color: #888;
+}
+
+#drawChartBtn:active,
+#start:active,  {
+  background-color: #475359;
+}
