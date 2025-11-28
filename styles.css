@@ -123,7 +123,7 @@ body {
       }
 
       .navbar ul li a.modality {
-        margin-right: 5px;
+        margin-right: 3px;
         float: left;
         font-size: 1.4rem;
         font-weight: 500;
@@ -164,7 +164,7 @@ body {
       }
 
       .navbar ul li a.activity {
-        margin-right: 5px;
+        margin-right: 3px;
         float: left;
         font-size: 1.4rem;
         font-weight: 900;
@@ -223,7 +223,7 @@ body {
         display: flex; /* makes children flow inline */
         flex-direction: row;
     
-        gap: 1rem; /* spacing between boxes */
+        gap: .5rem; /* spacing between boxes */
         height: 100%;
       }
 
@@ -233,13 +233,13 @@ body {
         flex-direction:column;
         justify-content: center; /* horizontal */
         align-items: center;     /* vertical */
-        padding: 2rem;
+        padding: 1rem;
         width: 1024px;
-        min-height: 690px;
+        min-height: 600px;
         max-height: 868px;
         height: auto;
         background-color: #4d4d4d;
-        border-radius: 868px;
+        border-radius: 32px;
         margin-top: 10px;
         margin-bottom: 10px;
         border: 2px solid rgb(65, 64, 64); /* or choose any color */
@@ -247,7 +247,7 @@ body {
 
       .gradient {
         flex: 1 1 auto;/* each takes equal width */
-        padding: 2rem;
+        padding: 1rem;
         text-align: center;
         width: 1024px;
         background: linear-gradient(
@@ -257,9 +257,9 @@ body {
           /* middle with 20% opacity */ rgba(0, 0, 0, 0.7) 100%
             /* top with 70% opacity */
         );
-        border-radius: 86px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        border-radius: 32px;
+        margin-top: 5px;
+        margin-bottom: 5px;
         z-index: 1;
       }
 
@@ -271,12 +271,12 @@ body {
   align-items: center;        /* optional */
   min-width: 130px;           /* your requirement */;
   max-width: 167px;           /* you can keep or remove */
-  min-height: 690px;          /* your requirement */
+  min-height: 650px;          /* your requirement */
   max-height: 910px;          /* you can keep or remove */
   height: auto;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 10px;
   background-color: #4d4d4d;
   border-radius: 100px;
@@ -293,14 +293,14 @@ body {
         align-items: center;
         min-width: 130px;
         max-width: 167px;
-        min-height: 690px;
+        min-height: 650px;
         max-height: 910px;
         height: auto;
         background-color: #4d4d4d;
         border-radius: 100px;
-        margin-right: 20px;
-        margin-top: 10px;
-        margin-bottom:10px;
+        margin-right: 5px;
+        margin-top: 5px;
+        margin-bottom:5px;
         padding: 10px;
         z-index: 1;
         border: 2px solid rgb(65, 64, 64); /* or choose any color */
@@ -475,6 +475,12 @@ body {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
 
 .overlay.show {
   visibility: visible;
@@ -483,7 +489,6 @@ body {
 
 /* Overlay Card Styling */
 .overlay-card {
-  position: fixed;
   background: white;
   padding: 20px;
   border-radius: 8px;
@@ -574,7 +579,7 @@ body {
 
 
 #drawChartBtn,
-#start  {
+#start, #status  {
   padding: 6px 12px;
   font-size: 0.8rem;
   border: 1px solid #666;
@@ -583,6 +588,7 @@ body {
   color: #fff;
   cursor: pointer;
   outline: none;
+  border-radius:20px;
   transition: 0.15s ease;
 }
 
