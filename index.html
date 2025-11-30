@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
 
     <!--
@@ -17,48 +17,134 @@
     -->
     <meta
       name="copyright"
-      content="© 2025 Art J. Olson / Artomic Design. All Rights Reserved."
-    />
-    <meta name="author" content="Art J. Olson" />
-    <meta name="project" content="The Artomic RØNTGEN Project" />
+      content="© 2025 Art J. Olson / Artomic Design. All Rights Reserved.">
+    <meta name="author" content="Art J. Olson">
+    <meta name="project" content="The Artomic RØNTGEN Project">
     <meta
       name="license"
-      content="All Rights Reserved. Proprietary and confidential."
-    />
+      content="All Rights Reserved. Proprietary and confidential.">
     <meta
       name="technology"
-      content="HTML, JavaScript (vanilla), JSON, Node.js/Express.js, CSS/Flexbox, RDF, XML, Bluetooth LE, Arduino, WAI-ARIA."
-    />
+      content="HTML, JavaScript (vanilla), JSON, Node.js/Express.js, CSS/Flexbox, RDF, XML, Bluetooth LE, Arduino, WAI-ARIA.">
+
+    <link
+      rel="preload"
+      as="image"
+      href="images/SVG/optim2/isometric_set_0000_1255_isometric_330deg_1optim2.svg"
+      fetchpriority="high">
+
+    <!--<script src="js/highcharts.bundle.js" defer></script>-->
 
     <script src="js/highcharts.js" defer></script>
     <script src="js/highcharts-more.js" defer></script>
     <script src="js/accessibility.js" defer></script>
-    <script src="js/chartscombined.js" defer></script>
-    <script src="js/main.js" defer></script>
 
+    <script src="js/chartscombined.js" defer></script>
     <script src="js/charts.js" defer></script>
     <script src="Charts/js/chart.js"></script>
+    <script src="js/main.js" defer></script>
 
+    <link rel="stylesheet" href="/css/styles.css">
 
-    <link rel="stylesheet" href="css/styles.css">
-
-    
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="manifest.json">
 
     <!--<iframe src="/sandbox.html" sandbox="allow-scripts allow-forms"></iframe>-->
 
     <!-- iOS Home Screen Icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon180.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon180.png">
 
     <!-- Make app open in standalone mode -->
-    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
     <meta
       name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+      content="black-translucent">
 
     <!-- Name under the icon -->
-    <meta name="apple-mobile-web-app-title" content="Artomic Røntgen" />
+    <meta name="apple-mobile-web-app-title" content="Artomic Røntgen">
+    <style>
+      .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        height: 100%;
+        width: 100%;
+      }
+
+      .grid-box {
+        flex: 1 1 calc(50% - 10px); /* 2 per row */
+        /* keeps boxes square */
+        min-width: calc(50% - 10px); /* prevents shifting */
+        background: transparent;
+        border: 1px solid #bbb;
+        display: flex;
+        justify-content: center;
+        border-radius: 20px;
+        position: relative;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+      }
+
+      .grid-box.full {
+        flex-basis: 100%;
+        min-width: 100%;
+      }
+
+      .grid-box canvas {
+        display: block; /* remove inline spacing */
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      /* X button */
+      .expand-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        border: none;
+        background: #000;
+        color: #fff;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .grid-box.expanded {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        flex: none;
+        z-index: 10;
+      }
+
+      /* Hide all other boxes when one is expanded */
+      .grid-box.hidden {
+        display: none;
+      }
+
+      /* Mobile stacking (normal mode) */
+      @media (max-width: 600px) {
+        .grid-box {
+          flex: 1 1 100%;
+        }
+      }
+      .bottom-row {
+        display: flex; /* Horizontal row for boxes */
+        width: 100%;
+      }
+
+      .box {
+        flex: 1; /* Each box takes equal space */
+        text-align: center;
+        border-radius: 25%;
+      }
+    </style>
+
+
   </head>
 
   <body>
@@ -69,8 +155,7 @@
           To give you updates and alerts, we’d like to send notifications. By
           continuing, you confirm you’ve read and accept our
           <a href="consent.html" target="_blank"
-            >Privacy Policy and Informed Consent</a
-          >.
+            >Privacy Policy and Informed Consent</a>
         </p>
         <button id="push">Enable Notifications</button>
       </div>
@@ -92,8 +177,7 @@
         <li><a href="#" class="screen-link">Machine-panel</a></li>
         <li><a href="#" class="modality">CT</a></li>
         <li>
-          <a class="activity">Blocks</a
-          ><a href="#" class="protocol">Praxis</a>
+          <a class="activity">Blocks</a><a href="#" class="protocol">Praxis</a>
         </li>
         <li>
           <a href="#" class="calander" title="calendar">
@@ -103,8 +187,7 @@
         <li>
           <a href="#" class="clock">
             <div id="time">--:-- --</div>
-            <div id="date">--.--.----</div></a
-          >
+            <div id="date">--.--.----</div></a>
         </li>
       </ul>
     </header>
@@ -122,14 +205,13 @@
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%);
-            "
-          />
+            ">
         </div>
         <div id="cone-beam" class="beam">
-          <img src="images/cone_1.png" alt="example" />
+          <img src="images/cone_1.png" alt="example">
         </div>
         <div id="column-beam" class="beam">
-          <img src="images/column.png" alt="example" />
+          <img src="images/column.png" alt="example">
         </div>
       </div>
       <div class="bay gradient">
@@ -141,122 +223,116 @@
         <div id="stage3" class="stage">3</div>
         <div id="stage4" class="stage">4</div>
         START-->
-<div class="grid-container">
-  <div class="grid-box" data-box="1">
-    <button class="expand-btn">X
-</button>
-    <!--Box 1--> 
+        <div class="grid-container">
+          <div class="grid-box" data-box="1">
+            <button class="expand-btn">X</button>
+            <!--Box 1-->
 
             <div class="image-container">
-          <img
-            id="displayImage"
-            src="images/PNG/isometric_set_0011_TDC_1200_isometric_0deg_1.png"
-            alt="Mode Image"
-            onerror="this.onerror=null; this.'src=images/PNG/placeholder.png';"
-          />
-        </div>
+              <img
+                id="displayImage"
+                src="images/SVG/optim2/isometric_set_0000_1255_isometric_330deg_1optim2.svg"
+                alt="Mode Image"
+                onerror="this.onerror=null; this.src=images/PNG/placeholder.png"
+                fetchpriority="high">
+            </div>
+          </div>
 
-  </div>
-
-  <div class="grid-box" data-box="2">
-    <button class="expand-btn">X</button>
-    <!--Box 2-->
+          <div class="grid-box" data-box="2">
+            <!--Box 2-->
 
             <div class="box">
-              <input
-                type="file"
-                id="jsonUpload"
-                accept="application/json"
-                multiple
-              />
-              <button id="saveFilesBtn">
-                Save to localStorage
-              </button>
-                 <select id="storedFilesDropdown"></select>
-              <button id="drawChartBtn">Draw Chart</button>
+              <!-- Row 1: File upload + Save -->
+              <div class="row">
+                <input
+                  type="file"
+                  id="jsonUpload"
+                  accept="application/json"
+                  multiple>
+                <button id="saveFilesBtn">Save</button>
+              </div>
+
+              <!-- Row 2: Stored files dropdown + Draw -->
+              <div class="row">
+                <select id="storedFilesDropdown"></select>
+                <button id="drawChartBtn">Draw</button>
+              </div>
 
               <canvas id="myChart"></canvas>
             </div>
+          </div>
 
+          <div class="grid-box full" data-box="3">
+            <!--Box 3-->
+            <div id="tempGauge" style="width: 40px; height: 40px"></div>
 
-  </div>
+            <figure class="highcharts-figure">
+           <div
+  id="container"
+  style="
+    width: 100%; /* or any valid width */
+    height: min-content;
+    margin: 0; 
+    overflow: visible !important;
+  ">
 
-  <div class="grid-box" data-box="3">
-    <button class="expand-btn">X
-</button>
-    <!--Box 3-->
-<div id="tempGauge" style="width:40px; height:40px;"></div>
+                </div>
+            </figure>
+          </div>
 
-        <figure class="highcharts-figure">
-          <div
-            id="container"
-            style="width: span; height: min-content; margin: none; ;margin-inline-start: 0px; margin-inline-end: 0px; overflow: visible !important"
-          ></div>
-        </figure>
+          <div class="grid-box full" data-box="4">
+            <!--Box 4-->
 
-  </div>
-
-  <div class="grid-box" data-box="4">
-    
-    <!--Box 4-->
-
-
-    <button id="start">Run Benchmark</button>
-               <div
-          id="progress-container"
-          style="
-            width: 100%;
-            background: #444;
-            height: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 10px;
-            margin-bottom: 60px;
-            margin-left: 35px;
-            margin-right: 35px;
-          "
-        >
-          <div
-            id="progress"
-            style="
-              height: 100%;
-              width: 0%;
-              background: limegreen;
-              transition: width 0.3s ease;
-              margin-left: 5px;
-              margin-right: 5px;
-            "
-          ></div>
-                  
+            <button id="start">Run Benchmark</button>
+            <div
+              id="progress-container"
+              style="
+                width: 100%;
+                background: #444;
+                height: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+                margin-top: 10px;
+                margin-bottom: 60px;
+                margin-left: 35px;
+                margin-right: 35px;
+              ">
+              <div
+                id="progress"
+                style="
+                  height: 100%;
+                  width: 0%;
+                  background: limegreen;
+                  transition: width 0.3s ease;
+                  margin-left: 5px;
+                  margin-right: 5px;
+                ">
+                </div>
+            </div>
+            <div>
+              <pre id="status" style="color: white; max-height: 40px">Ready</pre>
+            </div>
+          </div>
         </div>
-        <div><pre id="status" style=" color: white">Ready</pre></div>
-
-  </div>
-
-</div>
-
-
-</div>
+      </div>
       <div class="right-toolbar">
         <div class="gauge">
           <img
             src="images/speaker.png"
             alt="example"
-        style="
-              
-    
-    aspect-ratio: 1 / 1;
-    max-width: 150px;
-    min-width: 100px;
-    width: 100%;
-    height: 100%;
-    background: #2d373d;
-    border-radius: 50%;
-    border: 3px solid black;
-    z-index: 2;
-    object-fit: contain;
-            "
-          />        </div>
+            style="
+              aspect-ratio: 1 / 1;
+              max-width: 150px;
+              min-width: 100px;
+              width: 100%;
+              height: 100%;
+              background: #2d373d;
+              border-radius: 50%;
+              border: 3px solid black;
+              z-index: 2;
+              object-fit: contain;
+            ">
+        </div>
 
         <div id="gauge4" class="gauge" style="position: relative">
           <img
@@ -270,8 +346,7 @@
               width: 100%;
               height: 100%;
               object-fit: contain;
-            "
-          />
+            ">
         </div>
 
         <div
@@ -282,8 +357,7 @@
             border-radius: 5px;
             font-weight: bold;
             color: white;
-          "
-        >
+          ">
           Checking...
         </div>
 
@@ -299,11 +373,11 @@
         </div>-->
 
         <button id="nextBtn" class="gantry">
-          <img src="images/turn.png" alt="example" />
+          <img src="images/turn.png" alt="example">
         </button>
 
         <div id="colorOIP" class="gantry">
-          <img id="hoverImg" src="images/OIP.png" alt="example" />
+          <img id="hoverImg" src="images/OIP.png" alt="example">
         </div>
 
         <div
@@ -313,140 +387,44 @@
             align-items: center;
             gap: 10px;
             margin-top: 5px;
-          "
-        >
-          <img src="images/express.png" alt="Express JS" style="height: 40px" />
+          ">
+          <img src="images/express.png" alt="Express JS" style="height: 40px" >
           <img
             src="images/nodejs-icon.jpg"
             alt="Node JS icon"
-            style="height: 40px"
-          />
+            style="height: 40px">
         </div>
       </div>
     </div>
-    <style>
-.grid-container {
-  flex: 1 1 auto;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-    align-items: normal;    
 
-  gap: 15px;
-  position: relative;
-  min-height: 0;     /* IMPORTANT: prevents flexbox from forcing height */
-}
+    <script>
+      const boxes = document.querySelectorAll(".grid-box");
 
-.grid-box {
-  flex: 1 1 calc(50% - 10px);  /* 2 per row */
-       /* keeps boxes square */
-  background: transparent;
-  border: 1px solid #bbb;
-  display: flex;
-  justify-content: center;
-  border-radius:20px;
-  position: relative;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
+      boxes.forEach((box) => {
+        const btn = box.querySelector(".expand-btn");
+        if (!btn) return; // skip this box if no button
 
-.grid-box canvas {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* keeps proportions */
-}
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation(); // prevent click bubbling
 
+          const isExpanded = box.classList.contains("expanded");
 
+          // Reset everything
+          boxes.forEach((b) => {
+            b.classList.remove("expanded");
+            b.classList.remove("hidden");
+          });
 
-/* X button */
-.expand-btn {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  border: none;
-  background: #000;
-  color: #fff;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Expanded box — fills the entire container */
-.grid-box.expanded {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  flex: none;
-  z-index: 10;
-}
-
-/* Hide all other boxes when one is expanded */
-.grid-box.hidden {
-  display: none;
-}
-
-/* Mobile stacking (normal mode) */
-@media (max-width: 600px) {
-  .grid-box {
-    flex: 1 1 100%;
-  }
-}
-
-
-
-
-
-      .bottom-row {
-        display: flex; /* Horizontal row for boxes */
-        width: 100%;
-      }
-
-      .box {
-        flex: 1; /* Each box takes equal space */
-        text-align: center;
-        border-radius: 25%;
-      }
-    </style>
-<script>
-
-const boxes = document.querySelectorAll(".grid-box");
-
-boxes.forEach(box => {
-
-  const btn = box.querySelector(".expand-btn");
-  if (!btn) return; // skip this box if no button
-
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent click bubbling
-
-    const isExpanded = box.classList.contains("expanded");
-
-    // Reset everything
-    boxes.forEach(b => {
-      b.classList.remove("expanded");
-      b.classList.remove("hidden");
-    });
-
-    if (!isExpanded) {
-      // Expand this one
-      box.classList.add("expanded");
-      boxes.forEach(b => {
-        if (b !== box) b.classList.add("hidden");
+          if (!isExpanded) {
+            // Expand this one
+            box.classList.add("expanded");
+            boxes.forEach((b) => {
+              if (b !== box) b.classList.add("hidden");
+            });
+          }
+        });
       });
-    }
-  });
-
-});
-
-
-</script>
-
+    </script>
 
     <script>
       // Show overlay
@@ -536,5 +514,10 @@ boxes.forEach(box => {
     </script>
     <script src="js/script.js"></script>
 
+    <!--<script type="module">
+ import { onLCP, onCLS } from 'https://unpkg.com/web-vitals?module';
+  onLCP(console.log);
+  onCLS(console.log);
+</script>-->
   </body>
 </html>
